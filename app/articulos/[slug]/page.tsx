@@ -1,58 +1,40 @@
-import Link from 'next/link'
-import { getArticulo } from '@/lib/sanity'
-import { PortableText } from '@portabletext/react'
+import { getArticulo } from "../../../lib/sanity"
 
-export default async function ArticuloPage({ params }: { params: { slug: string } }) {
-  const articulo = await getArticulo(params.slug)
+export default async function ArticuloPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const articulo = await getArticulo(slug)
 
   if (!articulo) {
     return (
-      <main className="min-h-screen bg-white text-gray-900 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Artículo no encontrado</h1>
-          <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
-            ← Volver al inicio
-          </Link>
+      <main style={{fontFamily: "system-ui, sans-serif", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <div style={{textAlign: "center"}}>
+          <h1 style={{fontSize: "24px", marginBottom: "16px"}}>Articulo no encontrado</h1>
+          <a href="/" style={{color: "#2d6a4f"}}>Volver al inicio</a>
         </div>
       </main>
     )
   }
 
   return (
-    <main className="min-h-screen bg-white text-gray-900">
-      <header className="border-b border-gray-100 px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="font-semibold text-lg tracking-tight hover:text-gray-600 transition-colors">
-          Andres Gutierrez
-        </Link>
-        <Link href="/#articulos" className="text-sm text-gray-400 hover:text-gray-900 transition-colors">
-          ← Todos los artículos
-        </Link>
+    <main style={{fontFamily: "system-ui, sans-serif", minHeight: "100vh", backgroundColor: "#f8f4ef"}}>
+      <header style={{background: "linear-gradient(135deg, #2d3a4a 0%, #1a2634 100%)", padding: "20px 48px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "3px solid #c9a84c"}}>
+        <a href="/" style={{fontWeight: "800", fontSize: "18px", color: "#f0e6cc", textDecoration: "none", fontFamily: "Georgia, serif"}}>Andres Gutierrez</a>
+        <a href="/#articulos" style={{fontSize: "13px", color: "#b8c4cc", textDecoration: "none"}}>Volver a articulos</a>
       </header>
-
-      <article className="max-w-2xl mx-auto px-6 py-16">
-        <p className="text-xs text-gray-400 mb-4 tracking-widest uppercase">
-          {new Date(articulo.fechaPublicacion).toLocaleDateString('es-CO', {
-            year: 'numeric', month: 'long', day: 'numeric'
-          })}
+      <article style={{maxWidth: "780px", margin: "0 auto", padding: "80px 48px"}}>
+        <p style={{fontSize: "12px", color: "#2d6a4f", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "20px"}}>
+          {articulo.fechaPublicacion ? new Date(articulo.fechaPublicacion).toLocaleDateString("es-CO", {year: "numeric", month: "long", day: "numeric"}) : ""}
         </p>
-        <h1 className="text-4xl font-bold tracking-tight mb-6 leading-tight">
-          {articulo.titulo}
-        </h1>
-        <p className="text-xl text-gray-500 leading-relaxed mb-12 border-b border-gray-100 pb-12">
-          {articulo.resumen}
-        </p>
-        <div className="prose prose-gray max-w-none">
-          {articulo.contenido && <PortableText value={articulo.contenido} />}
-        </div>
-        <div className="mt-16 pt-8 border-t border-gray-100">
-          <p className="text-sm text-gray-400 mb-1">Autor</p>
-          <p className="font-semibold">Andres Gutierrez</p>
-          <p className="text-sm text-gray-400 mt-1">Autor de <em>Las verdades de una mentira</em></p>
+        <h1 style={{fontSize: "42px", fontWeight: "800", lineHeight: "1.2", marginBottom: "24px", letterSpacing: "-1px", color: "#2d3a4a", fontFamily: "Georgia, serif"}}>{articulo.titulo}</h1>
+        <p style={{fontSize: "18px", color: "#666", lineHeight: "1.8", marginBottom: "48px", borderBottom: "1px solid #e8e0d5", paddingBottom: "32px"}}>{articulo.resumen}</p>
+        <div style={{fontSize: "17px", lineHeight: "1.9", color: "#333"}}>
+          <p style={{whiteSpace: "pre-wrap"}}>{articulo.contenido}</p>
         </div>
       </article>
-
-      <footer className="border-t border-gray-100 px-6 py-8 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} Andres Gutierrez — Todos los derechos reservados
+      <footer style={{background: "linear-gradient(135deg, #1a2634 0%, #2d3a4a 100%)", padding: "40px 48px", borderTop: "3px solid #c9a84c", marginTop: "80px"}}>
+        <div style={{maxWidth: "780px", margin: "0 auto", textAlign: "center"}}>
+          <span style={{fontSize: "14px", color: "#f0e6cc", fontFamily: "Georgia, serif"}}>Andres Gutierrez</span>
+        </div>
       </footer>
     </main>
   )
