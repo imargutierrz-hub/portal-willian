@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { getArticulos } from "../lib/sanity"
 import { client } from "../lib/sanity"
 
 async function getArticulos() {
@@ -8,6 +9,7 @@ async function getArticulos() {
 }
 
 export default async function Home() {
+  const articulos = await getArticulos()
   const articulos = await getArticulos()
 
   return (
