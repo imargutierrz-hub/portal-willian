@@ -1,26 +1,30 @@
 import { writeFileSync } from 'fs'
 
-const postcss = `const config = {
+const postcss = `module.exports = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    tailwindcss: {},
+    autoprefixer: {},
   },
-};
+}`
 
-export default config;`
+const tailwindconfig = `/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}`
 
-const tailwindcss = `@tailwind base;
+const globals = `@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
 }
 
 a {
@@ -29,5 +33,6 @@ a {
 }`
 
 writeFileSync('postcss.config.mjs', postcss, 'utf8')
-writeFileSync('app/globals.css', tailwindcss, 'utf8')
+writeFileSync('tailwind.config.js', tailwindconfig, 'utf8')
+writeFileSync('app/globals.css', globals, 'utf8')
 console.log('OK')
