@@ -8,7 +8,20 @@ export const client = createClient({
 })
 
 export async function getArticulos() {
-  return client.fetch(`*[_type == "articulo"] | order(fechaPublicacion desc) {
-    _id, titulo, slug, resumen, fechaPublicacion
-  }`)
+  return client.fetch(
+    '*[_type == "articulo"] | order(fechaPublicacion desc) {_id, titulo, slug, resumen, fechaPublicacion}'
+  )
+}
+
+export async function getArticulo(slug) {
+  return client.fetch(
+    '*[_type == "articulo" && slug.current == $slug][0] {_id, titulo, resumen, contenido, fechaPublicacion}',
+    { slug }
+  )
+}
+
+export async function getLibro() {
+  return client.fetch(
+    '*[_type == "libro"][0] {titulo, descripcion, linkAmazon}'
+  )
 }
