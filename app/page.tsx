@@ -10,7 +10,6 @@ async function getArticulos() {
 
 export default async function Home() {
   const articulos = await getArticulos()
-  const articulos = await getArticulos()
 
   return (
     <main style={{fontFamily: 'system-ui, sans-serif', minHeight: '100vh', backgroundColor: '#f8f4ef'}}>
