@@ -1,6 +1,15 @@
 import Link from "next/link"
+import { client } from "../lib/sanity"
+
+async function getArticulos() {
+  return client.fetch(`*[_type == "articulo"] | order(fechaPublicacion desc) {
+    _id, titulo, slug, resumen, fechaPublicacion
+  }`)
+}
 
 export default async function Home() {
+  const articulos = await getArticulos()
+
   return (
     <main style={{fontFamily: 'system-ui, sans-serif', minHeight: '100vh', backgroundColor: '#f8f4ef'}}>
 
