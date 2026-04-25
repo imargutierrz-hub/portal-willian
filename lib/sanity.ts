@@ -13,7 +13,7 @@ export async function getArticulos() {
   )
 }
 
-export async function getArticulo(slug) {
+export async function getArticulo(slug: string) {
   return client.fetch(
     '*[_type == "articulo" && slug.current == $slug][0] {_id, titulo, resumen, contenido, fechaPublicacion}',
     { slug }
