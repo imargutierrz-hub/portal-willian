@@ -98,24 +98,10 @@ export default function HablaPicPage() {
     <HablaPicShell>
 
       {/* =================================================
-          PORTADA / HERO
+          PORTADA ORIGINAL
       ================================================= */}
 
-      <section
-        className="
-          relative
-          w-full
-          overflow-hidden
-          min-h-[620px]
-          sm:min-h-[620px]
-          lg:min-h-0
-          lg:aspect-[1488/720]
-          flex
-          items-center
-        "
-      >
-
-        {/* Imagen de fondo */}
+      <section className="relative w-full aspect-[1488/720] flex items-center overflow-hidden">
 
         <Image
           src="/banner_hablapic.jpg"
@@ -123,140 +109,36 @@ export default function HablaPicPage() {
           fill
           priority
           sizes="100vw"
-          className="
-            object-cover
-            object-center
-            z-0
-          "
+          className="object-contain object-center z-0"
         />
 
-        {/* Capa suave para mejorar la lectura del texto */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full py-8 md:py-0">
 
-        <div className="absolute inset-0 bg-black/10 z-[1]" />
+          <div className="max-w-xl bg-slate-950/40 p-6 sm:p-8 rounded-3xl backdrop-blur-sm border border-white/15">
 
-        {/* Contenido */}
-
-        <div
-          className="
-            relative
-            z-10
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-6
-            lg:px-10
-            w-full
-            py-16
-            sm:py-20
-            lg:py-10
-            flex
-            items-center
-          "
-        >
-
-          <div
-            className="
-              w-full
-              max-w-xl
-              bg-slate-950/40
-              p-6
-              sm:p-8
-              lg:p-8
-              rounded-3xl
-              backdrop-blur-sm
-              border
-              border-white/15
-              shadow-xl
-            "
-          >
-
-            <h1
-              className="
-                text-2xl
-                sm:text-4xl
-                lg:text-5xl
-                font-bold
-                tracking-tight
-                text-white
-                drop-shadow-md
-              "
-            >
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white drop-shadow-md">
               Una app para comunicarse con pictogramas
             </h1>
 
-            <p
-              className="
-                mt-3
-                text-sm
-                sm:text-base
-                text-slate-100
-                leading-relaxed
-                drop-shadow
-              "
-            >
+            <p className="mt-3 text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow">
               Para personas no hablantes, y un espacio donde las familias se
               apoyan entre sí.
             </p>
 
-            <div
-              className="
-                mt-6
-                flex
-                flex-col
-                sm:flex-row
-                sm:flex-wrap
-                gap-3
-              "
-            >
+            <div className="mt-6 flex flex-wrap gap-3">
 
               {PLAY_STORE_URL ? (
                 <a
                   href={PLAY_STORE_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    gap-2
-                    bg-blue-600
-                    hover:bg-blue-500
-                    text-white
-                    px-5
-                    py-3
-                    rounded-full
-                    text-xs
-                    sm:text-sm
-                    font-semibold
-                    transition
-                    shadow-lg
-                    w-full
-                    sm:w-auto
-                  "
+                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition shadow-lg"
                 >
                   <Download className="w-4 h-4" />
                   Descargar en Google Play
                 </a>
               ) : (
-                <span
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    gap-2
-                    bg-slate-900/80
-                    backdrop-blur
-                    px-5
-                    py-3
-                    rounded-full
-                    text-xs
-                    sm:text-sm
-                    font-semibold
-                    text-slate-300
-                    w-full
-                    sm:w-auto
-                  "
-                >
+                <span className="inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-slate-300">
                   <Download className="w-4 h-4" />
                   Pronto en Google Play
                 </span>
@@ -264,28 +146,7 @@ export default function HablaPicPage() {
 
               <a
                 href="#como-funciona"
-                className="
-                  inline-flex
-                  items-center
-                  justify-center
-                  gap-2
-                  px-5
-                  py-3
-                  rounded-full
-                  border
-                  border-white/30
-                  bg-black/20
-                  backdrop-blur
-                  text-xs
-                  sm:text-sm
-                  font-semibold
-                  text-white
-                  hover:border-blue-400
-                  hover:bg-black/40
-                  transition
-                  w-full
-                  sm:w-auto
-                "
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/30 bg-black/20 backdrop-blur text-xs sm:text-sm font-semibold text-white hover:border-blue-400 hover:bg-black/40 transition"
               >
                 Cómo funciona
                 <ArrowRight className="w-4 h-4" />
@@ -312,29 +173,11 @@ export default function HablaPicPage() {
             HablaPic
           </p>
 
-          <h2
-            className="
-              mt-3
-              text-3xl
-              lg:text-4xl
-              font-bold
-              tracking-tight
-              text-slate-900
-            "
-          >
+          <h2 className="mt-3 text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
             Una herramienta pensada para facilitar la comunicación
           </h2>
 
-          <p
-            className="
-              mt-5
-              mx-auto
-              max-w-2xl
-              text-base
-              text-slate-500
-              leading-7
-            "
-          >
+          <p className="mt-5 mx-auto max-w-2xl text-base text-slate-500 leading-7">
             El objetivo es sencillo: seleccionar imágenes, formar una frase y
             convertirla en voz. Todo desde una interfaz visual que puede
             adaptarse a las necesidades de cada persona.
@@ -380,37 +223,10 @@ export default function HablaPicPage() {
                 <Link
                   key={a.href}
                   href={a.href}
-                  className="
-                    group
-                    rounded-3xl
-                    border
-                    border-slate-200
-                    bg-white
-                    p-7
-                    transition
-                    duration-300
-                    hover:-translate-y-1
-                    hover:border-blue-200
-                    hover:shadow-xl
-                    hover:shadow-slate-200/60
-                  "
+                  className="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
                 >
 
-                  <div
-                    className="
-                      flex
-                      h-12
-                      w-12
-                      items-center
-                      justify-center
-                      rounded-2xl
-                      bg-blue-50
-                      text-blue-600
-                      transition
-                      group-hover:bg-blue-600
-                      group-hover:text-white
-                    "
-                  >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
                     <Icono className="h-6 w-6" />
                   </div>
 
@@ -422,27 +238,9 @@ export default function HablaPicPage() {
                     {a.texto}
                   </p>
 
-                  <span
-                    className="
-                      mt-6
-                      inline-flex
-                      items-center
-                      gap-2
-                      text-sm
-                      font-bold
-                      text-blue-600
-                    "
-                  >
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-600">
                     {a.accion}
-
-                    <ArrowRight
-                      className="
-                        h-4
-                        w-4
-                        transition
-                        group-hover:translate-x-1
-                      "
-                    />
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
 
                 </Link>
@@ -475,24 +273,12 @@ export default function HablaPicPage() {
 
       <section
         id="como-funciona"
-        className="
-          py-20
-          bg-white
-          scroll-mt-20
-        "
+        className="py-20 bg-white scroll-mt-20"
       >
 
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-          <div
-            className="
-              grid
-              grid-cols-1
-              lg:grid-cols-2
-              gap-14
-              lg:items-center
-            "
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:items-center">
 
             {/* Pasos */}
 
@@ -502,16 +288,7 @@ export default function HablaPicPage() {
                 Así funciona
               </p>
 
-              <h2
-                className="
-                  mt-3
-                  text-3xl
-                  lg:text-4xl
-                  font-bold
-                  tracking-tight
-                  text-slate-900
-                "
-              >
+              <h2 className="mt-3 text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
                 Crear una frase es muy sencillo
               </h2>
 
@@ -530,22 +307,7 @@ export default function HablaPicPage() {
                     className="flex gap-5"
                   >
 
-                    <div
-                      className="
-                        flex
-                        h-11
-                        w-11
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-2xl
-                        bg-blue-600
-                        text-sm
-                        font-bold
-                        text-white
-                        shadow-sm
-                      "
-                    >
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-sm font-bold text-white shadow-sm">
                       {String(i + 1).padStart(2, "0")}
                     </div>
 
@@ -574,17 +336,7 @@ export default function HablaPicPage() {
 
             <div>
 
-              <div
-                className="
-                  overflow-hidden
-                  rounded-[2rem]
-                  border
-                  border-slate-200
-                  bg-slate-950
-                  shadow-2xl
-                  shadow-slate-200
-                "
-              >
+              <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl shadow-slate-200">
 
                 {VIDEO_URL ? (
 
@@ -592,32 +344,10 @@ export default function HablaPicPage() {
                     href={VIDEO_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="
-                      group
-                      flex
-                      min-h-[330px]
-                      flex-col
-                      items-center
-                      justify-center
-                      gap-4
-                      text-white
-                    "
+                    className="group flex min-h-[330px] flex-col items-center justify-center gap-4 text-white"
                   >
 
-                    <div
-                      className="
-                        flex
-                        h-20
-                        w-20
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-white/10
-                        backdrop-blur
-                        transition
-                        group-hover:scale-110
-                      "
-                    >
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 backdrop-blur transition group-hover:scale-110">
                       <PlayCircle className="h-12 w-12 text-cyan-300" />
                     </div>
 
@@ -629,30 +359,9 @@ export default function HablaPicPage() {
 
                 ) : (
 
-                  <div
-                    className="
-                      flex
-                      min-h-[330px]
-                      flex-col
-                      items-center
-                      justify-center
-                      px-8
-                      text-center
-                      text-white
-                    "
-                  >
+                  <div className="flex min-h-[330px] flex-col items-center justify-center px-8 text-center text-white">
 
-                    <div
-                      className="
-                        flex
-                        h-20
-                        w-20
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-white/10
-                      "
-                    >
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10">
                       <PlayCircle className="h-11 w-11 text-cyan-300" />
                     </div>
 
@@ -686,12 +395,7 @@ export default function HablaPicPage() {
 
       <section
         id="actualizaciones"
-        className="
-          py-20
-          bg-slate-50
-          border-y
-          border-slate-100
-        "
+        className="py-20 bg-slate-50 border-y border-slate-100"
       >
 
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
@@ -720,29 +424,10 @@ export default function HablaPicPage() {
 
               <article
                 key={i}
-                className="
-                  rounded-2xl
-                  border
-                  border-slate-200
-                  bg-white
-                  p-6
-                  transition
-                  hover:shadow-md
-                "
+                className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:shadow-md"
               >
 
-                <span
-                  className="
-                    inline-flex
-                    rounded-full
-                    bg-blue-50
-                    px-3
-                    py-1
-                    text-xs
-                    font-bold
-                    text-blue-600
-                  "
-                >
+                <span className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-600">
                   {u.version}
                 </span>
 
@@ -773,29 +458,11 @@ export default function HablaPicPage() {
 
         <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
 
-          <h2
-            className="
-              text-3xl
-              sm:text-4xl
-              font-bold
-              tracking-tight
-              text-white
-            "
-          >
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             Empieza a utilizar HablaPic
           </h2>
 
-          <p
-            className="
-              mt-4
-              mx-auto
-              max-w-xl
-              text-sm
-              sm:text-base
-              text-slate-400
-              leading-6
-            "
-          >
+          <p className="mt-4 mx-auto max-w-xl text-sm sm:text-base text-slate-400 leading-6">
             Descarga la aplicación gratuitamente y descubre una nueva forma
             visual de construir frases y comunicarte.
           </p>
@@ -806,24 +473,7 @@ export default function HablaPicPage() {
               href={PLAY_STORE_URL}
               target="_blank"
               rel="noreferrer"
-              className="
-                mt-8
-                inline-flex
-                items-center
-                gap-2
-                rounded-full
-                bg-blue-600
-                px-7
-                py-3.5
-                text-sm
-                font-bold
-                text-white
-                shadow-lg
-                shadow-blue-950/40
-                transition
-                hover:-translate-y-0.5
-                hover:bg-blue-500
-              "
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-950/40 transition hover:-translate-y-0.5 hover:bg-blue-500"
             >
               <Download className="h-4 w-4" />
               Descargar HablaPic
