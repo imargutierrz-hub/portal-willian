@@ -1,10 +1,11 @@
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Download, MessageSquare, PackageOpen, Store, PlayCircle } from "lucide-react"
 import HablaPicShell from "@/components/HablaPicShell"
 import AdSlot from "@/components/AdSlot"
 
 // ===== Edita aquí =====
-const PLAY_STORE_URL = "" // pega el enlace de Google Play cuando esté publicada
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.andresgutierrez.hablapic" // pega el enlace de Google Play cuando esté publicada
 const VIDEO_URL = "" // pega el enlace del video de instrucciones (YouTube)
 
 const pasos = [
@@ -66,33 +67,49 @@ export default function HablaPicPage() {
   return (
     <HablaPicShell>
       {/* Portada */}
-      <section className="bg-[#050b14] text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
-          <div className="max-w-2xl">
-            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">HablaPic</h1>
-            <p className="mt-5 text-lg text-slate-300 leading-8">
-              Una app gratuita para que las personas no hablantes se comuniquen con pictogramas,
-              y un espacio para que las familias se apoyen entre sí.
+      {/* Portada Hero con imagen como fondo completo sin recortes */}
+      <section className="relative w-full aspect-[1488/720] flex items-center overflow-hidden">
+        {/* La imagen es todo el fondo */}
+        <Image
+          src="/banner_hablapic.jpg"
+          alt="HablaPic, comunicación y voz"
+          fill
+          priority
+          sizes="100vw"
+          className="object-contain object-center z-0"
+        />
+
+        {/* Contenido flotante sobre la parte izquierda de la imagen */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
+          <div className="max-w-xl bg-slate-950/40 p-6 sm:p-8 rounded-3xl backdrop-blur-sm border border-white/15">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white drop-shadow-md">
+              Una app para comunicarse con pictogramas
+            </h1>
+            <p className="mt-3 text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow">
+              Para personas no hablantes, y un espacio donde las familias se apoyan entre sí.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               {PLAY_STORE_URL ? (
                 <a
                   href={PLAY_STORE_URL}
-                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-full text-sm font-semibold transition"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition shadow-lg"
                 >
                   <Download className="w-4 h-4" />
                   Descargar en Google Play
                 </a>
               ) : (
-                <span className="inline-flex items-center gap-2 bg-slate-800 px-6 py-3 rounded-full text-sm font-semibold text-slate-300">
+                <span className="inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-slate-300">
                   <Download className="w-4 h-4" />
                   Pronto en Google Play
                 </span>
               )}
+
               <a
                 href="#como-funciona"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-600 text-sm font-semibold hover:border-blue-400 transition"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/30 bg-black/20 backdrop-blur text-xs sm:text-sm font-semibold text-white hover:border-blue-400 hover:bg-black/40 transition"
               >
                 Cómo funciona
                 <ArrowRight className="w-4 h-4" />

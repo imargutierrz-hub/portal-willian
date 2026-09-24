@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "motion/react"
 import {
   ArrowRight,
@@ -507,44 +508,16 @@ function HeroGraphic() {
 }
 
 function ProjectPreview({ tipo }: { tipo: string }) {
-  if (tipo === "hablapic") {
+    if (tipo === "hablapic") {
     return (
-      <div className="relative h-full w-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center gap-3">
-        <div className="w-16 h-32 bg-white rounded-xl shadow-lg border border-slate-300 p-2">
-          <div className="w-full h-3 bg-blue-100 rounded mb-2" />
-          <div className="grid grid-cols-2 gap-1">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-square rounded-md bg-slate-100 border"
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="w-20 h-40 bg-white rounded-xl shadow-xl border border-slate-300 p-2">
-          <div className="w-full h-4 bg-blue-100 rounded mb-3" />
-          <div className="grid grid-cols-2 gap-1.5">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-square rounded-md bg-blue-50 border border-blue-100"
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="w-16 h-32 bg-white rounded-xl shadow-lg border border-slate-300 p-2">
-          <div className="w-full h-3 bg-pink-100 rounded mb-2" />
-          <div className="grid grid-cols-2 gap-1">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-square rounded-md bg-pink-50 border"
-              />
-            ))}
-          </div>
-        </div>
+      <div className="relative h-full w-full">
+        <Image
+          src="/banner_hablapic.jpg"
+          alt="HablaPic: dos niños sostienen un tablero de pictogramas"
+          fill
+          sizes="(min-width: 1024px) 33vw, 100vw"
+          className="object-cover"
+        />
       </div>
     )
   }
@@ -889,7 +862,7 @@ export default function Home() {
             {proyectos.map((proyecto) => (
               <article
                 key={proyecto.nombre}
-                className="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                className="group relative bg-white rounded-2xl border border-slate-200 overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
               >
 
                 <div className="h-[210px] overflow-hidden">
@@ -912,7 +885,7 @@ export default function Home() {
 
                     <Link
                       href={proyecto.href}
-                      className="flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition"
+                      className="flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition after:absolute after:inset-0"
                     >
                       <ArrowUpRight className="w-4 h-4" />
                     </Link>
