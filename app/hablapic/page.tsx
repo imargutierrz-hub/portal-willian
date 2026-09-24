@@ -101,7 +101,7 @@ export default function HablaPicPage() {
           PORTADA ORIGINAL
       ================================================= */}
 
-      <section className="relative w-full aspect-[1488/720] flex items-center overflow-hidden">
+      <section className="relative w-full bg-[#050b14] pt-[48.39%] lg:pt-0 lg:flex lg:aspect-[1488/720] lg:items-center overflow-hidden">
 
         <Image
           src="/banner_hablapic.jpg"
@@ -109,10 +109,10 @@ export default function HablaPicPage() {
           fill
           priority
           sizes="100vw"
-          className="object-contain object-center z-0"
+          className="object-contain object-top lg:object-center z-0"
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full py-8 md:py-0">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full pt-6 pb-8 lg:py-0">
 
           <div className="max-w-xl bg-slate-950/40 p-6 sm:p-8 rounded-3xl backdrop-blur-sm border border-white/15">
 
@@ -144,8 +144,7 @@ export default function HablaPicPage() {
                 </span>
               )}
 
-              <a
-                href="#como-funciona"
+              <a href="#como-funciona"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/30 bg-black/20 backdrop-blur text-xs sm:text-sm font-semibold text-white hover:border-blue-400 hover:bg-black/40 transition"
               >
                 Cómo funciona
