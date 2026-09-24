@@ -7,8 +7,6 @@ import {
   PackageOpen,
   Store,
   PlayCircle,
-  Check,
-  Sparkles,
 } from "lucide-react"
 
 import HablaPicShell from "@/components/HablaPicShell"
@@ -29,43 +27,38 @@ const VIDEO_URL = ""
 
 const pasos = [
   {
-    numero: "01",
     titulo: "Elige los pictogramas",
-    texto:
-      "Toca las imágenes del tablero para seleccionar las palabras que quieres comunicar.",
+    texto: "Toca las imágenes del tablero para agregarlas a tu frase.",
   },
   {
-    numero: "02",
-    titulo: "Construye tu frase",
+    titulo: "Arma la frase",
     texto:
-      "Las palabras seleccionadas aparecen en la frase. Puedes borrar la última o comenzar de nuevo.",
+      "Las imágenes elegidas aparecen arriba. Con borrar quitas la última y con limpiar empiezas de nuevo.",
   },
   {
-    numero: "03",
     titulo: "Toca Hablar",
     texto:
-      "HablaPic convierte la frase en voz para facilitar la comunicación.",
+      "La app lee la frase en voz alta. Funciona en 9 idiomas y utiliza el idioma del teléfono.",
   },
   {
-    numero: "04",
     titulo: "Guarda tus favoritas",
     texto:
-      "Guarda las frases que utilizas con frecuencia para tenerlas disponibles rápidamente.",
+      "Las frases que usas a diario quedan disponibles para acceder a ellas rápidamente.",
   },
 ]
 
 const actualizaciones = [
   {
-    version: "Reciente",
+    version: "Versión reciente",
     titulo: "Mejor voz en teléfonos Samsung",
     texto:
-      "Si una voz falla, HablaPic prueba automáticamente otra disponible y recuerda cuál funciona.",
+      "Si una voz falla, la app prueba otra automáticamente y recuerda cuál funciona.",
   },
   {
-    version: "Reciente",
+    version: "Versión reciente",
     titulo: "Frases más cómodas",
     texto:
-      "Los botones de Hablar, borrar, limpiar y favorita se mantienen visibles aunque la frase crezca.",
+      "Los botones de Hablar, borrar, limpiar y favorita ya no se cortan cuando la frase crece.",
   },
 ]
 
@@ -74,7 +67,7 @@ const accesos = [
     icono: MessageSquare,
     titulo: "Foro de papás",
     texto:
-      "Comparte experiencias, cuenta qué les ha funcionado y encuentra apoyo de otras familias.",
+      "Cuenta la condición de tu hijo, qué les ha servido y resuelve dudas con otros papás.",
     href: "/hablapic/foro",
     accion: "Entrar al foro",
   },
@@ -82,7 +75,7 @@ const accesos = [
     icono: PackageOpen,
     titulo: "Banco de pictogramas",
     texto:
-      "Encuentra pictogramas y categorías para ampliar y personalizar tu tablero.",
+      "Descarga paquetes y categorías completas de una vez, o comparte los que creaste.",
     href: "/hablapic/pictogramas",
     accion: "Ver pictogramas",
   },
@@ -90,14 +83,14 @@ const accesos = [
     icono: Store,
     titulo: "Profesionales y tiendas",
     texto:
-      "Descubre terapeutas, profesionales y productos relacionados con la comunicación.",
+      "Terapeutas y vendedores de productos y servicios para personas no hablantes.",
     href: "/hablapic/profesionales",
     accion: "Conocerlos",
   },
 ]
 
 // =====================================================
-// COMPONENTE
+// PÁGINA
 // =====================================================
 
 export default function HablaPicPage() {
@@ -105,104 +98,66 @@ export default function HablaPicPage() {
     <HablaPicShell>
 
       {/* =================================================
-          HERO
+          PORTADA ORIGINAL
       ================================================= */}
 
-      <section className="relative overflow-hidden bg-[#07101d]">
+      <section className="relative w-full aspect-[1488/720] flex items-center overflow-hidden">
 
-        {/* Imagen */}
+        <Image
+          src="/banner_hablapic.jpg"
+          alt="HablaPic, comunicación y voz"
+          fill
+          priority
+          sizes="100vw"
+          className="object-contain object-center z-0"
+        />
 
-        <div className="absolute inset-0">
-          <Image
-            src="/banner_hablapic.jpg"
-            alt="HablaPic, aplicación de comunicación mediante pictogramas"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
 
-          {/* Overlay para mejorar lectura */}
+          <div className="max-w-xl bg-slate-950/40 p-6 sm:p-8 rounded-3xl backdrop-blur-sm border border-white/15">
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07101d]/90 via-[#07101d]/55 to-[#07101d]/10" />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07101d]/35 to-transparent" />
-        </div>
-
-        {/* Contenido */}
-
-        <div className="relative z-10 mx-auto flex min-h-[560px] max-w-7xl items-center px-6 py-20 lg:px-10">
-
-          <div className="max-w-2xl">
-
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
-              <Sparkles className="h-4 w-4 text-cyan-300" />
-              Comunicación más accesible
-            </div>
-
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Comunicar también es{" "}
-              <span className="text-cyan-300">tener voz.</span>
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white drop-shadow-md">
+              Una app para comunicarse con pictogramas
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-7 text-slate-200 sm:text-lg">
-              HablaPic utiliza pictogramas para ayudar a las personas no
-              hablantes a construir frases y comunicarse de una manera sencilla,
-              visual y personalizable.
+            <p className="mt-3 text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow">
+              Para personas no hablantes, y un espacio donde las familias se
+              apoyan entre sí.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
 
               {PLAY_STORE_URL ? (
                 <a
                   href={PLAY_STORE_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-950/30 transition hover:-translate-y-0.5 hover:bg-blue-500"
+                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition shadow-lg"
                 >
-                  <Download className="h-4 w-4" />
-                  Descargar gratis
+                  <Download className="w-4 h-4" />
+                  Descargar en Google Play
                 </a>
               ) : (
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur">
-                  <Download className="h-4 w-4" />
-                  Próximamente
+                <span className="inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-slate-300">
+                  <Download className="w-4 h-4" />
+                  Pronto en Google Play
                 </span>
               )}
 
               <a
                 href="#como-funciona"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/30 bg-black/20 backdrop-blur text-xs sm:text-sm font-semibold text-white hover:border-blue-400 hover:bg-black/40 transition"
               >
                 Cómo funciona
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="w-4 h-4" />
               </a>
 
             </div>
 
-            {/* Beneficios rápidos */}
-
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-200">
-
-              <span className="inline-flex items-center gap-2">
-                <Check className="h-4 w-4 text-cyan-300" />
-                Gratis
-              </span>
-
-              <span className="inline-flex items-center gap-2">
-                <Check className="h-4 w-4 text-cyan-300" />
-                9 idiomas
-              </span>
-
-              <span className="inline-flex items-center gap-2">
-                <Check className="h-4 w-4 text-cyan-300" />
-                Personalizable
-              </span>
-
-            </div>
-
           </div>
+
         </div>
+
       </section>
 
 
@@ -210,19 +165,19 @@ export default function HablaPicPage() {
           INTRODUCCIÓN
       ================================================= */}
 
-      <section className="border-b border-slate-100 bg-white py-16">
+      <section className="py-16 bg-white">
 
-        <div className="mx-auto max-w-5xl px-6 text-center lg:px-10">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center">
 
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">
             HablaPic
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
             Una herramienta pensada para facilitar la comunicación
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-500">
+          <p className="mt-5 mx-auto max-w-2xl text-base text-slate-500 leading-7">
             El objetivo es sencillo: seleccionar imágenes, formar una frase y
             convertirla en voz. Todo desde una interfaz visual que puede
             adaptarse a las necesidades de cada persona.
@@ -237,9 +192,9 @@ export default function HablaPicPage() {
           COMUNIDAD
       ================================================= */}
 
-      <section className="bg-slate-50 py-20">
+      <section className="py-20 bg-slate-50">
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
           <div className="max-w-2xl">
 
@@ -248,19 +203,18 @@ export default function HablaPicPage() {
             </p>
 
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
-              Mucho más que una aplicación
+              Comunidad HablaPic
             </h2>
 
-            <p className="mt-4 text-base leading-7 text-slate-500">
-              También estamos construyendo un espacio para familias,
-              profesionales y personas interesadas en la comunicación
-              aumentativa y alternativa.
+            <p className="mt-4 text-base text-slate-500 leading-7">
+              Un espacio para familias, profesionales y personas interesadas
+              en mejorar las herramientas de comunicación.
             </p>
 
           </div>
 
 
-          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
 
             {accesos.map((a) => {
               const Icono = a.icono
@@ -269,7 +223,7 @@ export default function HablaPicPage() {
                 <Link
                   key={a.href}
                   href={a.href}
-                  className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
+                  className="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
                 >
 
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
@@ -280,7 +234,7 @@ export default function HablaPicPage() {
                     {a.titulo}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-slate-500">
+                  <p className="mt-3 text-sm text-slate-500 leading-6">
                     {a.texto}
                   </p>
 
@@ -296,14 +250,19 @@ export default function HablaPicPage() {
           </div>
 
           <p className="mt-6 text-xs text-slate-400">
-            La comunidad requiere una cuenta gratuita en esta página. La
-            aplicación HablaPic no necesita una cuenta para utilizarse.
+            Para participar en la comunidad necesitas crear una cuenta
+            gratuita en esta página. La aplicación HablaPic no necesita una
+            cuenta para utilizarse.
           </p>
 
         </div>
 
       </section>
 
+
+      {/* =================================================
+          PUBLICIDAD
+      ================================================= */}
 
       <AdSlot slot="SLOT_HABLAPIC_1" />
 
@@ -314,12 +273,12 @@ export default function HablaPicPage() {
 
       <section
         id="como-funciona"
-        className="scroll-mt-20 bg-white py-20"
+        className="py-20 bg-white scroll-mt-20"
       >
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:items-center">
 
             {/* Pasos */}
 
@@ -329,11 +288,11 @@ export default function HablaPicPage() {
                 Así funciona
               </p>
 
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              <h2 className="mt-3 text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
                 Crear una frase es muy sencillo
               </h2>
 
-              <p className="mt-4 max-w-xl text-base leading-7 text-slate-500">
+              <p className="mt-4 max-w-xl text-base text-slate-500 leading-7">
                 HablaPic está pensada para que el proceso sea visual y fácil
                 de entender.
               </p>
@@ -341,15 +300,15 @@ export default function HablaPicPage() {
 
               <div className="mt-10 space-y-7">
 
-                {pasos.map((p) => (
+                {pasos.map((p, i) => (
 
                   <div
-                    key={p.numero}
+                    key={p.titulo}
                     className="flex gap-5"
                   >
 
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-sm font-bold text-white shadow-sm">
-                      {p.numero}
+                      {String(i + 1).padStart(2, "0")}
                     </div>
 
                     <div>
@@ -358,7 +317,7 @@ export default function HablaPicPage() {
                         {p.titulo}
                       </h3>
 
-                      <p className="mt-1 text-sm leading-6 text-slate-500">
+                      <p className="mt-1 text-sm text-slate-500 leading-6">
                         {p.texto}
                       </p>
 
@@ -375,7 +334,7 @@ export default function HablaPicPage() {
 
             {/* Video */}
 
-            <div className="relative">
+            <div>
 
               <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl shadow-slate-200">
 
@@ -436,10 +395,10 @@ export default function HablaPicPage() {
 
       <section
         id="actualizaciones"
-        className="border-y border-slate-100 bg-slate-50 py-20"
+        className="py-20 bg-slate-50 border-y border-slate-100"
       >
 
-        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10">
 
           <div className="text-center">
 
@@ -451,7 +410,7 @@ export default function HablaPicPage() {
               Actualizaciones
             </h2>
 
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-500">
+            <p className="mt-4 mx-auto max-w-xl text-sm text-slate-500 leading-6">
               Estas son algunas de las mejoras incorporadas recientemente a
               HablaPic.
             </p>
@@ -468,25 +427,17 @@ export default function HablaPicPage() {
                 className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:shadow-md"
               >
 
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <span className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-600">
+                  {u.version}
+                </span>
 
-                  <div>
+                <h3 className="mt-3 font-bold text-slate-900">
+                  {u.titulo}
+                </h3>
 
-                    <span className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-600">
-                      {u.version}
-                    </span>
-
-                    <h3 className="mt-3 font-bold text-slate-900">
-                      {u.titulo}
-                    </h3>
-
-                    <p className="mt-2 text-sm leading-6 text-slate-500">
-                      {u.texto}
-                    </p>
-
-                  </div>
-
-                </div>
+                <p className="mt-2 text-sm text-slate-500 leading-6">
+                  {u.texto}
+                </p>
 
               </article>
 
@@ -503,15 +454,15 @@ export default function HablaPicPage() {
           CTA FINAL
       ================================================= */}
 
-      <section className="bg-[#07101d] py-20">
+      <section className="py-20 bg-[#07101d]">
 
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
 
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             Empieza a utilizar HablaPic
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">
+          <p className="mt-4 mx-auto max-w-xl text-sm sm:text-base text-slate-400 leading-6">
             Descarga la aplicación gratuitamente y descubre una nueva forma
             visual de construir frases y comunicarte.
           </p>
