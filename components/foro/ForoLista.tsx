@@ -199,7 +199,7 @@ export default function ForoLista() {
           {posts.map((p) => (
             <article
               key={p.id}
-              className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:shadow-md"
+              className="relative rounded-2xl border border-slate-200 bg-white p-6 transition hover:shadow-md"
             >
               <div className="flex flex-wrap items-center gap-2 text-xs">
                 <span className="rounded-full bg-blue-50 px-3 py-1 font-bold text-blue-600">
@@ -212,7 +212,7 @@ export default function ForoLista() {
 
               <Link
                 href={`/hablapic/foro/${p.id}`}
-                className="mt-3 block text-lg font-bold text-slate-900 transition hover:text-blue-600"
+                className="mt-3 block text-lg font-bold text-slate-900 transition hover:text-blue-600 after:absolute after:inset-0"
               >
                 {p.titulo}
               </Link>
@@ -229,7 +229,7 @@ export default function ForoLista() {
                     <button
                       key={t}
                       onClick={() => filtrarPorEtiqueta(t)}
-                      className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-500 transition hover:border-blue-300 hover:text-blue-600"
+                      className="relative z-10 rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-500 transition hover:border-blue-300 hover:text-blue-600"
                     >
                       #{t}
                     </button>
