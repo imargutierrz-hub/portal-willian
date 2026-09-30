@@ -8,6 +8,7 @@ import { Flag } from "lucide-react"
 
 import { supabase } from "@/lib/supabase"
 import { asegurarSesion } from "@/lib/foroAuth"
+import { MAX_CONTENIDO, MAX_NOMBRE, limpiarTexto } from "@/lib/foroTexto"
 
 type Tipo = "pregunta" | "consejo" | "experiencia"
 
@@ -55,6 +56,17 @@ const fecha = (iso: string) =>
     month: "short",
     year: "numeric",
   })
+
+function Contador({ actual, max }: { actual: number; max: number }) {
+  const cerca = actual > max * 0.9
+  return (
+    <div className="mt-1 flex justify-end">
+      <span className={`text-[11px] ${cerca ? "text-amber-600" : "text-slate-400"}`}>
+        {actual} / {max}
+      </span>
+    </div>
+  )
+}
 
 // =====================================================
 // HILO
@@ -334,7 +346,9 @@ function FormularioRespuesta({
   async function responder(e: FormEvent) {
     e.preventDefault()
 
-    if (!contenido.trim()) {
+    const contenidoLimpio = limpiarTexto(contenido.trim())
+
+    if (!contenidoLimpio) {
       setError("Escribe tu respuesta.")
       return
     }
@@ -348,9 +362,9 @@ function FormularioRespuesta({
       const { error: err } = await supabase.from("foro_respuestas").insert({
         post_id: postId,
         usuario_id: user.id,
-        contenido: contenido.trim(),
+        contenido: contenidoLimpio,
         es_anonimo: anonimo,
-        nombre_mostrado: anonimo ? null : nombre.trim() || null,
+        nombre_mostrado: anonimo ? null : limpiarTexto(nombre).trim() || null,
       })
 
       if (err) throw err
@@ -375,11 +389,12 @@ function FormularioRespuesta({
         value={contenido}
         onChange={(e) => setContenido(e.target.value)}
         rows={5}
-        maxLength={3000}
+        maxLength={MAX_CONTENIDO}
         className={`${CAMPO} resize-none`}
       />
+      <Contador actual={contenido.length} max={MAX_CONTENIDO} />
 
-      <p className="mt-2 text-[11px] leading-5 text-slate-400">
+      <p className="mt-1 text-[11px] leading-5 text-slate-400">
         Evita escribir nombres completos, documentos o datos que permitan
         identificar a otras personas.
       </p>
@@ -392,7 +407,7 @@ function FormularioRespuesta({
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
           disabled={anonimo}
-          maxLength={40}
+          maxLength={MAX_NOMBRE}
           className={`${CAMPO} disabled:opacity-50`}
         />
 

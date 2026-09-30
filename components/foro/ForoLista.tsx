@@ -7,6 +7,7 @@ import { MessageSquare, Plus, Search, X } from "lucide-react"
 
 import { supabase } from "@/lib/supabase"
 import { asegurarSesion, guardarAviso } from "@/lib/foroAuth"
+import { MAX_TITULO, MAX_CONTENIDO, MAX_NOMBRE, limpiarTexto } from "@/lib/foroTexto"
 
 type Tipo = "pregunta" | "consejo" | "experiencia"
 
@@ -47,6 +48,17 @@ const fecha = (iso: string) =>
     month: "short",
     year: "numeric",
   })
+
+function Contador({ actual, max }: { actual: number; max: number }) {
+  const cerca = actual > max * 0.9
+  return (
+    <div className="mt-1 flex justify-end">
+      <span className={`text-[11px] ${cerca ? "text-amber-600" : "text-slate-400"}`}>
+        {actual} / {max}
+      </span>
+    </div>
+  )
+}
 
 // =====================================================
 // LISTA
@@ -269,7 +281,10 @@ function FormularioNuevo({ onPublicado }: { onPublicado: () => void }) {
   async function publicar(e: FormEvent) {
     e.preventDefault()
 
-    if (!titulo.trim() || !contenido.trim()) {
+    const tituloLimpio = limpiarTexto(titulo.trim())
+    const contenidoLimpio = limpiarTexto(contenido.trim())
+
+    if (!tituloLimpio || !contenidoLimpio) {
       setError("Escribe un título y tu mensaje.")
       return
     }
@@ -284,7 +299,7 @@ function FormularioNuevo({ onPublicado }: { onPublicado: () => void }) {
         new Set(
           etiquetasTexto
             .split(",")
-            .map((t) => t.trim().toLowerCase().replace(/^#/, ""))
+            .map((t) => limpiarTexto(t).trim().toLowerCase().replace(/^#/, ""))
             .filter(Boolean)
         )
       ).slice(0, 5)
@@ -294,11 +309,11 @@ function FormularioNuevo({ onPublicado }: { onPublicado: () => void }) {
         .insert({
           usuario_id: user.id,
           tipo,
-          titulo: titulo.trim(),
-          contenido: contenido.trim(),
+          titulo: tituloLimpio,
+          contenido: contenidoLimpio,
           etiquetas,
           es_anonimo: anonimo,
-          nombre_mostrado: anonimo ? null : nombre.trim() || null,
+          nombre_mostrado: anonimo ? null : limpiarTexto(nombre).trim() || null,
         })
         .select("id")
         .single()
@@ -352,9 +367,10 @@ function FormularioNuevo({ onPublicado }: { onPublicado: () => void }) {
         <input
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
-          maxLength={120}
+          maxLength={MAX_TITULO}
           className={CAMPO}
         />
+        <Contador actual={titulo.length} max={MAX_TITULO} />
       </div>
 
       <div className="mt-4">
@@ -363,10 +379,11 @@ function FormularioNuevo({ onPublicado }: { onPublicado: () => void }) {
           value={contenido}
           onChange={(e) => setContenido(e.target.value)}
           rows={6}
-          maxLength={3000}
+          maxLength={MAX_CONTENIDO}
           className={`${CAMPO} resize-none`}
         />
-        <p className="mt-2 text-[11px] leading-5 text-slate-400">
+        <Contador actual={contenido.length} max={MAX_CONTENIDO} />
+        <p className="mt-1 text-[11px] leading-5 text-slate-400">
           Evita escribir nombres completos, documentos o datos que permitan
           identificar a tu hijo o a otras personas.
         </p>
@@ -381,7 +398,7 @@ function FormularioNuevo({ onPublicado }: { onPublicado: () => void }) {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             disabled={anonimo}
-            maxLength={40}
+            maxLength={MAX_NOMBRE}
             className={`${CAMPO} disabled:opacity-50`}
           />
           <label className="mt-3 flex items-center gap-2 text-xs text-slate-600">
