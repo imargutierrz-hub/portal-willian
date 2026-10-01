@@ -28,7 +28,7 @@ export default function PictogramasPage() {
 
           <p className="mt-4 text-sm leading-7 text-slate-500">
             Estamos preparando este espacio para que las familias puedan
-            compartir y descargar paquetes de pictogramas. Disponible
+            acceder a una gran variedad de pictogramas. Disponible
             próximamente.
           </p>
 
