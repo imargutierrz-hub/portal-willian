@@ -7,6 +7,7 @@ import { MessageSquare, Plus, Search, X } from "lucide-react"
 
 import { supabase } from "@/lib/supabase"
 import { asegurarSesion, guardarAviso } from "@/lib/foroAuth"
+import CuentaForo from "@/components/foro/CuentaForo"
 import { MAX_TITULO, MAX_CONTENIDO, MAX_NOMBRE, limpiarTexto } from "@/lib/foroTexto"
 
 type Tipo = "pregunta" | "consejo" | "experiencia"
@@ -142,6 +143,10 @@ export default function ForoLista() {
             {formAbierto ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
             {formAbierto ? "Cerrar" : "Nueva publicación"}
           </button>
+        </div>
+
+        <div className="mt-4">
+          <CuentaForo />
         </div>
 
         {formAbierto && (
@@ -430,10 +435,21 @@ function FormularioNuevo({ onPublicado }: { onPublicado: () => void }) {
 
       {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
+      <p className="mt-4 text-center text-[11px] text-slate-400">
+        Al publicar aceptas los{" "}
+        <a
+          href="/hablapic/foro/terminos"
+          target="_blank"
+          className="font-semibold text-blue-600 hover:text-blue-700"
+        >
+          Términos de uso del foro
+        </a>
+      </p>
+
       <button
         type="submit"
         disabled={enviando}
-        className="mt-6 h-11 w-full rounded-full bg-blue-600 text-sm font-bold text-white transition hover:bg-blue-500 disabled:opacity-60"
+        className="mt-3 h-11 w-full rounded-full bg-blue-600 text-sm font-bold text-white transition hover:bg-blue-500 disabled:opacity-60"
       >
         {enviando ? "Publicando…" : "Publicar"}
       </button>

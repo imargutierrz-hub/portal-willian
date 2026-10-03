@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 
 import HablaPicShell from "@/components/HablaPicShell"
+import MuroTerminos from "@/components/foro/MuroTerminos"
 import ForoHilo from "@/components/foro/ForoHilo"
 
 export const metadata: Metadata = {
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
 export default function HiloPage() {
   return (
     <HablaPicShell>
-      <ForoHilo />
+      <MuroTerminos>
+        <ForoHilo />
+      </MuroTerminos>
     </HablaPicShell>
   )
 }
