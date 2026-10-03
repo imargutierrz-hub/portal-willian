@@ -1372,6 +1372,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* =================================================
+          APOYO / DONACIONES (KO-FI)
+      ================================================= */}
+
+      <Apoyo />
+
       {/* ================= FOOTER ================= */}
       <footer className="bg-[#050b14] text-slate-400">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-7">
