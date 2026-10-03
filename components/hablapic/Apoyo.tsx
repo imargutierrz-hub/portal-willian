@@ -1,5 +1,5 @@
 // Reemplaza esta URL por tu enlace real de Ko-fi cuando crees la cuenta.
-const KOFI_URL = "https://ko-fi.com/TU_USUARIO"
+const KOFI_URL = "https://ko-fi.com/hablapic"
 
 export default function Apoyo() {
   return (

@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "motion/react"
+import Apoyo from "@/components/hablapic/Apoyo"
 import {
   ArrowRight,
   ArrowUpRight,

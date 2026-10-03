@@ -11,6 +11,7 @@ import {
 
 import HablaPicShell from "@/components/HablaPicShell"
 import AdSlot from "@/components/AdSlot"
+import Apoyo from "@/components/hablapic/Apoyo"
 
 // =====================================================
 // CONFIGURACIÓN
