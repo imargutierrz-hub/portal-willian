@@ -701,7 +701,7 @@ export default function Home() {
 
               {/* Email */}
               <a
-                href="mailto:andresgutierrez.dev@gmail.com"
+                href="mailto:imargutierrz@gmail.com"
                 aria-label="Correo electrónico"
                 className="text-white hover:text-blue-400 transition"
               >
@@ -1281,7 +1281,7 @@ export default function Home() {
                       Email
                     </p>
                     <p className="text-sm font-medium text-slate-700">
-                      andresgutierrez.dev@gmail.com
+                      imargutierrz@gmail.com
                     </p>
                   </div>
                 </div>
@@ -1341,7 +1341,7 @@ export default function Home() {
 
                   <input
                     type="email"
-                    placeholder="tu@email.com"
+                    placeholder="imargutierrz@gmail.com"
                     className="mt-2 w-full h-11 px-4 rounded-xl bg-slate-50 border border-slate-200 text-xs outline-none focus:border-blue-500 focus:bg-white transition"
                   />
                 </div>

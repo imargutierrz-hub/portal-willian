@@ -30,7 +30,7 @@ export default function HablaPicShell({ children }: { children: React.ReactNode 
           </nav>
 
           <Link
-            href="/hablapic/ingresar"
+            href="/hablapic/foro"
             className="px-4 py-2 rounded-full border border-blue-500/60 text-white text-xs font-semibold hover:bg-blue-500/10 transition"
           >
             Ingresar

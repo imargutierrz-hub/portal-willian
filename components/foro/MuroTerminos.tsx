@@ -3,18 +3,43 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
+import { supabase } from "@/lib/supabase"
+import { asegurarSesion } from "@/lib/foroAuth"
+
 const CLAVE = "hablapic_foro_terminos_v1"
 
 export default function MuroTerminos({ children }: { children: React.ReactNode }) {
   const [aceptado, setAceptado] = useState<boolean | null>(null)
+  const [guardando, setGuardando] = useState(false)
+  const [error, setError] = useState("")
 
   useEffect(() => {
     setAceptado(localStorage.getItem(CLAVE) === "si")
   }, [])
 
-  function aceptar() {
-    localStorage.setItem(CLAVE, "si")
-    setAceptado(true)
+  async function aceptar() {
+    setGuardando(true)
+    setError("")
+
+    try {
+      // Registro real en Supabase: queda ligado a la misma identidad
+      // (sesión anónima o correo vinculado) que usa la persona para
+      // publicar, con fecha y hora exactas.
+      const user = await asegurarSesion()
+
+      const { error: err } = await supabase
+        .from("foro_aceptaciones")
+        .upsert({ usuario_id: user.id, aceptado_en: new Date().toISOString() })
+
+      if (err) throw err
+
+      localStorage.setItem(CLAVE, "si")
+      setAceptado(true)
+    } catch {
+      setError("No pudimos registrar tu aceptación. Intenta de nuevo.")
+    } finally {
+      setGuardando(false)
+    }
   }
 
   if (aceptado === null) return null // evita parpadeo mientras lee el navegador
@@ -40,11 +65,14 @@ export default function MuroTerminos({ children }: { children: React.ReactNode }
           Leer los Términos completos →
         </Link>
 
+        {error && <p className="mt-3 text-xs text-red-600">{error}</p>}
+
         <button
           onClick={aceptar}
-          className="mt-6 h-11 w-full rounded-full bg-blue-600 text-sm font-bold text-white transition hover:bg-blue-500"
+          disabled={guardando}
+          className="mt-6 h-11 w-full rounded-full bg-blue-600 text-sm font-bold text-white transition hover:bg-blue-500 disabled:opacity-60"
         >
-          Entiendo y acepto
+          {guardando ? "Guardando…" : "Entiendo y acepto"}
         </button>
       </div>
     </div>

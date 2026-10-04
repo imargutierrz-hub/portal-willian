@@ -93,7 +93,7 @@ export default function CuentaForo() {
         type="email"
         value={correo}
         onChange={(e) => setCorreo(e.target.value)}
-        placeholder="tu@correo.com"
+        placeholder="apphablapic@gmail.com"
         className="h-9 rounded-full border border-slate-200 bg-white px-3 text-xs outline-none transition focus:border-blue-500"
       />
       <button

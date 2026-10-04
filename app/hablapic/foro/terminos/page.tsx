@@ -31,7 +31,7 @@ const SECCIONES = [
   {
     titulo: "4. Publicaciones anónimas",
     texto:
-      "El foro permite publicar sin necesidad de registro. Dejar un correo de contacto es opcional y solo se usa para avisar sobre respuestas a tu publicación; no se muestra públicamente.",
+      "El foro permite publicar sin necesidad de registro. Mientras uses el mismo navegador y dispositivo, puedes editar o eliminar tus propias publicaciones y respuestas. Si cambias de navegador o dispositivo, o borras los datos de navegación, pierdes esa posibilidad sobre lo que ya publicaste (la publicación sigue visible para los demás, solo dejas de poder editarla o borrarla tú). Si deseas poder gestionar tus publicaciones desde cualquier dispositivo, puedes vincular tu correo de forma opcional desde el foro. Dejar un correo de contacto, con o sin vincular la cuenta, es opcional y solo se usa para avisar sobre respuestas a tu publicación; no se muestra públicamente.",
   },
   {
     titulo: "5. Responsabilidad",
@@ -41,7 +41,7 @@ const SECCIONES = [
   {
     titulo: "6. Contacto",
     texto:
-      "Para reportar contenido, solicitar la remoción de información personal, o cualquier consulta relacionada con el foro: efecontactenos@gmail.com",
+      "Para reportar contenido, solicitar la remoción de información personal, o cualquier consulta relacionada con el foro: apphablapic@gmail.com",
   },
   {
     titulo: "7. Cambios",

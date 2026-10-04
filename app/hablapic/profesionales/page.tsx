@@ -3,7 +3,7 @@ import { Mail, Store } from "lucide-react"
 
 import HablaPicShell from "@/components/HablaPicShell"
 
-const CORREO = "efecontactenos@gmail.com"
+const CORREO = "apphablapic@gmail.com"
 
 export const metadata: Metadata = {
   title: "Profesionales y tiendas | HablaPic",
