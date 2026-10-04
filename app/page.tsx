@@ -24,12 +24,12 @@ import {
 
 const proyectos = [
   {
-    nombre: "Landing Page",
+    nombre: "Páginas web",
     descripcion:
-      "Sitio web corporativo moderno, limpio y completamente responsive.",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    href: "#",
-    tipo: "landing",
+      "Diseños modernos y a la medida para tu negocio o marca personal. Contáctanos si deseas tener tu página web.",
+    tags: ["Next.js", "Tailwind CSS", "A la medida"],
+    href: "#contacto",
+    tipo: "paginas-web",
   },
   {
     nombre: "HablaPic",
@@ -38,14 +38,6 @@ const proyectos = [
     tags: ["React Native", "Expo", "TypeScript"],
     href: "/hablapic",
     tipo: "hablapic",
-  },
-  {
-    nombre: "EFE",
-    descripcion:
-      "Plataforma para análisis financiero y apoyo en la toma de decisiones.",
-    tags: ["Next.js", "Supabase", "TypeScript"],
-    href: "/efe",
-    tipo: "efe",
   },
 ]
 
@@ -523,25 +515,24 @@ function ProjectPreview({ tipo }: { tipo: string }) {
     )
   }
 
-  if (tipo === "efe") {
+  if (tipo === "paginas-web") {
     return (
-      <div className="h-full w-full bg-[#111827] p-5">
-        <div className="flex items-center justify-between mb-5">
-          <div className="h-3 w-24 bg-slate-600 rounded" />
-          <div className="h-5 w-14 bg-cyan-400/50 rounded" />
+      <div className="grid h-full w-full grid-cols-2 gap-2 bg-slate-50 p-4">
+        <div className="rounded-lg border border-slate-200 bg-white p-2 shadow-sm">
+          <div className="mb-2 h-2 w-10 rounded bg-blue-400" />
+          <div className="h-8 rounded bg-slate-100" />
         </div>
-
-        <div className="grid grid-cols-3 gap-2 mb-4">
-          <div className="h-14 bg-slate-800 rounded-lg border border-slate-700" />
-          <div className="h-14 bg-slate-800 rounded-lg border border-slate-700" />
-          <div className="h-14 bg-slate-800 rounded-lg border border-slate-700" />
+        <div className="rounded-lg bg-[#0f172a] p-2">
+          <div className="mb-2 h-2 w-10 rounded bg-cyan-300" />
+          <div className="h-8 rounded bg-slate-800" />
         </div>
-
-        <div className="h-28 bg-slate-800 rounded-lg border border-slate-700 relative overflow-hidden">
-          <div className="absolute left-4 right-4 bottom-5 h-px bg-slate-700" />
-          <div className="absolute left-5 bottom-6 w-12 h-12 border-t-2 border-cyan-400 rotate-[-35deg]" />
-          <div className="absolute left-16 bottom-10 w-12 h-16 border-t-2 border-cyan-400 rotate-[35deg]" />
-          <div className="absolute left-28 bottom-16 w-12 h-14 border-t-2 border-cyan-400 rotate-[-25deg]" />
+        <div className="rounded-lg border border-amber-100 bg-amber-50 p-2">
+          <div className="mb-2 h-2 w-10 rounded bg-amber-400" />
+          <div className="h-8 rounded bg-amber-100" />
+        </div>
+        <div className="rounded-lg border border-emerald-100 bg-emerald-50 p-2">
+          <div className="mb-2 h-2 w-10 rounded bg-emerald-400" />
+          <div className="h-8 rounded bg-emerald-100" />
         </div>
       </div>
     )
@@ -1100,90 +1091,7 @@ export default function Home() {
 
             </motion.div>
 
-            {/* EFE */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="mx-auto mt-12 max-w-5xl"
-            >
 
-              <div className="relative overflow-hidden rounded-3xl
-                border border-blue-400/20
-                bg-gradient-to-br
-                from-blue-950/80
-                via-slate-900
-                to-slate-950
-                p-8 md:p-10"
-              >
-
-                {/* Decoración */}
-                <div className="absolute -right-20 -top-20
-                  h-56 w-56 rounded-full
-                  bg-blue-500/10
-                  blur-3xl"
-                />
-
-                <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-
-                  <div className="max-w-2xl">
-
-                    <div className="mb-4 inline-flex items-center gap-2">
-
-                      <div className="flex h-10 w-10 items-center justify-center
-                        rounded-xl
-                        bg-blue-500/15
-                        border border-blue-400/20"
-                      >
-                        <Code2 className="h-5 w-5 text-cyan-300" />
-                      </div>
-
-                      <span className="text-sm font-medium text-blue-300">
-                        Proyecto en desarrollo
-                      </span>
-
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-white sm:text-3xl">
-                      EFE — Gestión y automatización empresarial
-                    </h3>
-
-                    <p className="mt-4 text-base leading-7 text-slate-400">
-                      Plataforma orientada a la gestión de ventas,
-                      cotizaciones, créditos, deudas, proveedores y
-                      procesos logísticos, con posibilidades de integración
-                      mediante automatización, APIs, mapas e inteligencia
-                      artificial.
-                    </p>
-
-                  </div>
-
-                  <div className="shrink-0">
-
-                    <a
-                      href="#contacto"
-                      className="inline-flex items-center gap-2 rounded-full
-                        bg-blue-500
-                        px-6 py-3
-                        text-sm font-semibold text-white
-                        transition-all duration-300
-                        hover:bg-blue-400
-                        hover:shadow-[0_10px_35px_rgba(59,130,246,0.3)]"
-                    >
-                      Hablemos de tu proyecto
-
-                      <ArrowRight className="h-4 w-4" />
-
-                    </a>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </motion.div>
 
           </div>
 
