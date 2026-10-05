@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "motion/react"
 import Apoyo from "@/components/hablapic/Apoyo"
+import ContactoForm from "@/components/ContactoForm"
 import {
   ArrowRight,
   ArrowUpRight,
@@ -692,7 +693,7 @@ export default function Home() {
 
               {/* Email */}
               <a
-                href="mailto:imargutierrz@gmail.com"
+                href="mailto:wagutierrezdev@gmail.com"
                 aria-label="Correo electrónico"
                 className="text-white hover:text-blue-400 transition"
               >
@@ -1189,7 +1190,7 @@ export default function Home() {
                       Email
                     </p>
                     <p className="text-sm font-medium text-slate-700">
-                      imargutierrz@gmail.com
+                      wagutierrezdev@gmail.com
                     </p>
                   </div>
                 </div>
@@ -1223,59 +1224,7 @@ export default function Home() {
             </div>
 
             {/* Formulario */}
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm"
-            >
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-                <div>
-                  <label className="text-xs font-semibold text-slate-700">
-                    Nombre
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Tu nombre"
-                    className="mt-2 w-full h-11 px-4 rounded-xl bg-slate-50 border border-slate-200 text-xs outline-none focus:border-blue-500 focus:bg-white transition"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-slate-700">
-                    Email
-                  </label>
-
-                  <input
-                    type="email"
-                    placeholder="imargutierrz@gmail.com"
-                    className="mt-2 w-full h-11 px-4 rounded-xl bg-slate-50 border border-slate-200 text-xs outline-none focus:border-blue-500 focus:bg-white transition"
-                  />
-                </div>
-
-              </div>
-
-              <div className="mt-4">
-                <label className="text-xs font-semibold text-slate-700">
-                  Mensaje
-                </label>
-
-                <textarea
-                  rows={5}
-                  placeholder="Cuéntame sobre tu proyecto..."
-                  className="mt-2 w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs outline-none focus:border-blue-500 focus:bg-white transition resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="mt-4 w-full h-11 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition shadow-lg shadow-blue-500/20"
-              >
-                Hablemos →
-              </button>
-
-            </form>
+            <ContactoForm />
           </div>
         </div>
       </section>
