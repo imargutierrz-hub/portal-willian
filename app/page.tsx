@@ -634,7 +634,7 @@ export default function Home() {
             </p>
 
             <h1 className="text-5xl sm:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.05]">
-              Andrés{" "}
+              Andres{" "}
               <span className="text-blue-500">
                 Gutiérrez
               </span>
@@ -1248,7 +1248,7 @@ export default function Home() {
               </div>
 
               <p className="text-[10px] text-slate-500">
-                © {new Date().getFullYear()} Andrés Gutiérrez.
+                © {new Date().getFullYear()} Andres Gutierrez.
                 Todos los derechos reservados.
               </p>
             </div>
