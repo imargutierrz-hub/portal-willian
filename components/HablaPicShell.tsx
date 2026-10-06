@@ -15,7 +15,7 @@ export default function HablaPicShell({ children }: { children: React.ReactNode 
       <header className="bg-[#050b14] border-b border-blue-400/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
           <Link href="/" className="text-xs text-slate-400 hover:text-white transition">
-            ← Andrés Gutiérrez
+            ← Andres Gutierrez
           </Link>
 
           <nav className="hidden md:flex items-center gap-7 text-xs font-medium text-slate-300">
@@ -44,7 +44,7 @@ export default function HablaPicShell({ children }: { children: React.ReactNode 
 
       <footer className="bg-[#050b14] text-slate-500">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-7 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
-          <p>HablaPic es una app creada por Andrés Gutiérrez.</p>
+          <p>HablaPic es una app creada por Andres Gutierrez.</p>
           <Link href="/" className="hover:text-white transition">
             Volver al inicio
           </Link>
