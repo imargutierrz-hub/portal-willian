@@ -35,7 +35,7 @@ const proyectos = [
   {
     nombre: "HablaPic",
     descripcion:
-      "Aplicación móvil de comunicación aumentativa y alternativa para facilitar la expresión.",
+      "Aplicación móvil de comunicación aumentativa y alternativa para facilitar la expresión. Toca el cuadro para ingresar al espacio de HablaPic.",
     tags: ["React Native", "Expo", "TypeScript"],
     href: "/hablapic",
     tipo: "hablapic",
