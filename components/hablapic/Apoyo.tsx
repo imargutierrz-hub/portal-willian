@@ -1,56 +1,65 @@
-const KOFI_URL = "https://ko-fi.com/hablapic"
+"use client"
+
+import Script from "next/script"
+import { useEffect, useState } from "react"
+
+declare global {
+  interface Window {
+    paypal?: any
+  }
+}
+
+const BUTTON_ID = "MVTS2H4C6HV8Y"
+const CONTAINER_ID = `paypal-container-${BUTTON_ID}`
+const SDK =
+  "https://www.paypal.com/sdk/js?client-id=BAA4AaS7MzifmECTqB-qvxlD6xjMUu5tPyyClIbt5N_XRaxRaARyitX9A6_vJXwxpAz8xSZha9MQHB4nh4&components=hosted-buttons&disable-funding=venmo&currency=USD&locale=es_CO"
 
 export default function Apoyo() {
+  const [listo, setListo] = useState(false)
+
+  useEffect(() => {
+    if (!listo || !window.paypal?.HostedButtons) return
+    const el = document.getElementById(CONTAINER_ID)
+    if (el && el.childElementCount === 0) {
+      window.paypal
+        .HostedButtons({ hostedButtonId: BUTTON_ID })
+        .render(`#${CONTAINER_ID}`)
+    }
+  }, [listo])
+
   return (
-    <section className="border-t border-slate-100 bg-white py-16">
-      <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
+    <section id="apoyo" className="py-20 bg-white">
+      <div className="max-w-2xl mx-auto px-6 lg:px-10 text-center">
         <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">
           Apóyanos
         </p>
 
-        <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 lg:text-3xl">
+        <h2 className="mt-3 text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
           HablaPic es y seguirá siendo gratis
         </h2>
 
-        <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-500">
+        <p className="mt-5 text-base text-slate-500 leading-7">
           Si la app le ha servido a tu familia y quieres ayudarnos a
-          mantenerla, puedes dejar un aporte voluntario usando el panel de
-          aquí abajo, o ingresando directamente a nuestra página en Ko-fi. No
-          es obligatorio ni cambia nada de lo que ya tienes disponible gratis.
+          mantenerla, puedes dejar un aporte voluntario del valor que
+          prefieras, desde un dólar. No es obligatorio ni cambia nada de lo
+          que ya tienes disponible gratis.
         </p>
 
-        {/* Panel de Ko-fi incrustado directamente */}
-        <div className="mt-8 flex justify-center">
-          <iframe
-            id="kofiframe"
-            src="https://ko-fi.com/hablapic/?hidefeed=true&widget=true&embed=true&preview=true"
-            style={{
-              border: "none",
-              width: "100%",
-              padding: "4px",
-              background: "#f9f9f9",
-            }}
-            height="712"
-            title="hablapic"
-            className="max-w-md rounded-2xl shadow-md"
-          ></iframe>
+        <div className="mt-10 mx-auto max-w-md rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div id={CONTAINER_ID} className="min-h-[220px]" />
         </div>
 
-        <a
-          href={KOFI_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#13C3FF] px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-[#0fb3ea]"
-        >
-          ☕ Ingresar a Ko-fi
-        </a>
-
-        <p className="mx-auto mt-3 max-w-sm text-xs leading-5 text-slate-400">
-          El panel de Ko-fi aparece en inglés. Si prefieres verlo en español,
-          al ingresar directamente a la página puedes usar el traductor de tu
-          navegador (clic derecho → Traducir al español).
+        <p className="mt-4 text-xs text-slate-400">
+          Pago seguro procesado por PayPal. Puedes pagar con tarjeta o con tu
+          cuenta de PayPal.
         </p>
       </div>
+
+      <Script
+        src={SDK}
+        strategy="afterInteractive"
+        onReady={() => setListo(true)}
+      />
     </section>
   )
 }

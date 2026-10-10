@@ -458,9 +458,7 @@ export default function HablaPicPage() {
 
       </section>
 
-      {/* =================================================
-          APOYO / DONACIONES (KO-FI)
-      ================================================= */}
+
 
       <Apoyo />
 
