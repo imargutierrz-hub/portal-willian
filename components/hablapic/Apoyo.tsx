@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-const BUTTON_ID = "MVTS2H4C6HV8Y"
+const BUTTON_ID = "PK3UE4QN22QN4"
 const CONTAINER_ID = `paypal-container-${BUTTON_ID}`
 const SDK =
   "https://www.paypal.com/sdk/js?client-id=BAA4AaS7MzifmECTqB-qvxlD6xjMUu5tPyyClIbt5N_XRaxRaARyitX9A6_vJXwxpAz8xSZha9MQHB4nh4&components=hosted-buttons&disable-funding=venmo&currency=USD&locale=es_CO"
