@@ -1,5 +1,6 @@
 import type { User } from "@supabase/supabase-js"
 import { supabase } from "@/lib/supabase"
+import { obtenerTokenCaptcha } from "@/lib/captcha"
 
 const RUTA_FORO = "/hablapic/foro"
 
@@ -17,7 +18,10 @@ export async function asegurarSesion(): Promise<User> {
   const { data } = await supabase.auth.getSession()
   if (data.session?.user) return data.session.user
 
-  const { data: anon, error } = await supabase.auth.signInAnonymously()
+  const captchaToken = await obtenerTokenCaptcha()
+  const { data: anon, error } = await supabase.auth.signInAnonymously(
+    captchaToken ? { options: { captchaToken } } : undefined
+  )
   if (error || !anon.user) {
     throw new Error("No se pudo iniciar la sesión anónima")
   }
@@ -49,11 +53,13 @@ export async function vincularCorreo(correo: string) {
  * correo ya vinculado. No crea cuentas nuevas.
  */
 export async function entrarConCorreo(correo: string) {
+  const captchaToken = await obtenerTokenCaptcha()
   const { error } = await supabase.auth.signInWithOtp({
     email: correo,
     options: {
       shouldCreateUser: false,
       emailRedirectTo: urlRetorno(),
+      captchaToken,
     },
   })
   if (error) throw error

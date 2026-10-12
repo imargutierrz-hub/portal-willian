@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import GuiaPasoAPaso from "@/components/hablapic/GuiaPasoAPaso"
 import {
   ArrowRight,
   Download,
@@ -161,13 +162,7 @@ export default function HablaPicPage() {
       </section>
 
 
-       {/* =================================================
-          APOYO / DONACIONES (KO-FI)
-      ================================================= */}
-
-      <Apoyo />
-
-
+      
 
 
       {/* =================================================
@@ -397,6 +392,7 @@ export default function HablaPicPage() {
 
       </section>
 
+      <GuiaPasoAPaso playStoreUrl={PLAY_STORE_URL} />
 
       {/* =================================================
           ACTUALIZACIONES
@@ -458,7 +454,9 @@ export default function HablaPicPage() {
 
       </section>
 
-
+      {/* =================================================
+          APOYO
+      ================================================= */}
 
       <Apoyo />
 
