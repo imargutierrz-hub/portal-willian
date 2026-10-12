@@ -68,7 +68,7 @@ const pasos = [
       "Si tu celular no tiene instalada la voz del idioma, instálala en los ajustes del celular, en «Salida de texto a voz».",
     ],
     imagen: "/hablapic/guia/06-configuracion.jpg",
-    ancho: 900,
+    ancho: 1000,
     alto: 1181,
     alt: "Pantalla de configuración de HablaPic con idioma, tono y velocidad",
   },
