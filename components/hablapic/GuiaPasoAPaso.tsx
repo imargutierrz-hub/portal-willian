@@ -18,9 +18,9 @@ const pasos = [
   {
     titulo: "Arma tu frase y presiona Hablar",
     texto: [
-      "Toca los botones de colores para armar una frase. Cada botón se dice en voz alta apenas lo tocas.",
-      "Presiona Hablar, arriba, para que la app diga toda la frase junta. Para quitar una palabra, tócala en la frase.",
-      "Los botones están ordenados por categorías de colores: Personas, Acciones, Respuestas, Necesidades, Social y Sentimientos.",
+      "Toca los botones de pictogramas para armar una frase. Cada botón se dice en voz alta apenas lo tocas.",
+      "Presiona Hablar, arriba, para que la app diga toda la frase junta. Para quitar una palabra, tócala en la frase o preciona la el boton de retroceso, tambien puedes borrar todo con el boton de la papelera.",
+      "Los botones están ordenados por categorías que puedes crear en el botón ➕.",
     ],
     imagen: "/hablapic/guia/02-tablero.jpg",
     ancho: 1200,
@@ -30,8 +30,8 @@ const pasos = [
   {
     titulo: "Guarda tus frases favoritas",
     texto: [
-      "Las frases que usas a diario se pueden guardar para decirlas rápido, con un solo toque, sin armarlas otra vez.",
-      "Desde la lista de frases guardadas también puedes borrar las que ya no necesites.",
+      "Las frases que usas a diario se pueden guardar para decirlas rápido usando el botó de la estrella de favoritos al lado del botón de limpiar con un solo toque, puedes buscarlas en el boton de favoritos de la derecha al lado del boton de apoyo, y así reproducirlas sin armarlas otra vez, pero tambien puedes dejar un pictograma con una frase completa.",
+      "Desde la lista de frases guardadas también puedes borrar las que ya no necesites con el boton de 🗑️ al lado de cada frase.",
     ],
     imagen: "/hablapic/guia/03-frases-guardadas.jpg",
     ancho: 1200,
@@ -41,8 +41,8 @@ const pasos = [
   {
     titulo: "Crea tus propios botones",
     texto: [
-      "Toca el botón azul «+» para crear un botón nuevo. Escribe la palabra o frase y elige una imagen: puedes tomar una foto, elegir una de la galería, usar un emoji grande o pedirle a tu IA (ChatGPT o Gemini) que la cree.",
-      "Elige la categoría del botón y toca Guardar. Para cambiar la foto o el texto de un botón que ya existe, mantenlo presionado.",
+      "Toca el botón azul ➕ para crear un botón nuevo. Escribe la palabra o frase y elige una imagen: puedes tomar una foto, elegir una de la galería, usar un emoji grande o pedirle a tu IA (ChatGPT o Gemini) que la cree por fuera de la app y despues la subes desde la galeria.",
+      "Elige la categoría para el botón o crea una nueva escogiendo el color que mas te guste, crea la categoría y toca Guardar. Para cambiar la foto o el texto de un botón que ya existe, mantenlo presionado y podras acceder al modulo de configurafion del pictograma y modificarlo a tu gusto.",
     ],
     imagen: "/hablapic/guia/04-nuevo-boton.jpg",
     ancho: 1000,
@@ -52,8 +52,8 @@ const pasos = [
   {
     titulo: "Agrega muchos pictogramas de una vez",
     texto: [
-      "Con la carga masiva puedes subir muchas imágenes en un solo paso. Primero elige la categoría donde se guardarán y luego elige las imágenes desde tus archivos.",
-      "Ponle nombre a cada imagen y súbelas todas juntas; espera a que termine el proceso. Al final puedes borrar las imágenes originales de tu celular: quedan guardadas dentro de la app.",
+      "Con el botón de 📂 -agregar varias imagenes- puedes subir muchas imágenes en un solo paso. Primero elige la categoría donde se guardarán y luego elige las imágenes desde tus archivos.",
+      "Ponle nombre correcto en frente de cada imagen y súbelas todas juntas; espera a que termine el proceso. Al final puedes borrar las imágenes originales de tu celular: quedan guardadas dentro de la app.",
     ],
     imagen: "/hablapic/guia/05-carga-masiva.jpg",
     ancho: 1200,

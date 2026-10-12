@@ -344,37 +344,37 @@ export default function HablaPicPage() {
 
                 {VIDEO_ID ? (
 
-                  <div className="aspect-video w-full">
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}`}
-                      title="Video de instrucciones de HablaPic"
-                      className="h-full w-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      loading="lazy"
-                    />
+                <div className="aspect-video w-full">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}`}
+                    title="Video de instrucciones de HablaPic"
+                    className="h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+
+              ) : (
+
+                <div className="flex min-h-[330px] flex-col items-center justify-center px-8 text-center text-white">
+
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10">
+                    <PlayCircle className="h-11 w-11 text-cyan-300" />
                   </div>
 
-                ) : (
+                  <h3 className="mt-6 font-bold">
+                    Aprende a utilizar HablaPic
+                  </h3>
 
-                  <div className="flex min-h-[330px] flex-col items-center justify-center px-8 text-center text-white">
+                  <p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">
+                    Aquí podrás encontrar próximamente un video explicando
+                    cómo utilizar las principales funciones de la aplicación.
+                  </p>
 
-                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10">
-                      <PlayCircle className="h-11 w-11 text-cyan-300" />
-                    </div>
+                </div>
 
-                    <h3 className="mt-6 font-bold">
-                      Aprende a utilizar HablaPic
-                    </h3>
-
-                    <p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">
-                      Aquí podrás encontrar próximamente un video explicando
-                      cómo utilizar las principales funciones de la aplicación.
-                    </p>
-
-                  </div>
-
-                )}
+              )}
 
               </div>
 
