@@ -65,7 +65,10 @@ const pasos = [
     texto: [
       "con el boton del ( ⚙️ ) puedes acceder al modulo de configuraciones. ",
       "Desde Configuración puedes quitar la ventana de bienvenida.",
-      "Elegir el idioma (la app está en 10 idiomas y por defecto usa el del celular), ajustar el tono y la velocidad de la voz y escoger entre las voces disponibles.",
+      "Elegir el idioma (la app está en 10 idiomas y por defecto usa el del celular.)",
+      "NOTA IMPORTANTE: El idioma de la app cambia la voz, para que hable en ese idioma, y los textos y botones propios de la aplicación, como los menús y los mensajes. No cambia las palabras de los pictogramas, porque esos botones son personalizables: cada persona escribe la palabra que quiere escuchar. Por eso, la palabra de cada pictograma debe estar en el idioma en que quieres escuchar la frase, y si quieres cambiar de idioma, debes escribir de nuevo esas palabras.",
+      "HablaPic está diseñada para ayudar a comunicarse, no para traducir ni para aprender idiomas. Por eso no traduce los pictogramas que ya agregaste.",
+      "Ajustar el tono y la velocidad de la voz y escoger entre las voces disponibles.",
       "También puedes poner tu propia imagen de fondo y borrar todos los botones si quieres empezar de cero. Para ingresar a configuracion debes pasar un candado de seguridad de una suma de 3 cifras, esto con la intencion de que nadie por error pueda cambiar las configuraciones de la app.",
       "Si tu celular no tiene instalada la voz del idioma, instálala en los ajustes del celular, en «Salida de texto a voz».",
     ],
