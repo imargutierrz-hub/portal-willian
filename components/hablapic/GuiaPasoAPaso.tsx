@@ -30,7 +30,7 @@ const pasos = [
   {
     titulo: "Guarda tus frases favoritas",
     texto: [
-      "Las frases que usas a diario se pueden guardar para decirlas rápido usando el botó de la estrella de favoritos al lado del botón de limpiar con un solo toque, puedes buscarlas en el boton de favoritos de la derecha al lado del boton de apoyo, y así reproducirlas sin armarlas otra vez, pero tambien puedes dejar un pictograma con una frase completa.",
+      "Con el boton de Favoritos ( ⭐ )Las frases que usas a diario se pueden guardar para decirlas rápido usando el botó de la estrella de favoritos al lado del botón de limpiar con un solo toque, puedes buscarlas en el boton de favoritos de la derecha al lado del boton de apoyo, y así reproducirlas sin armarlas otra vez, pero tambien puedes dejar un pictograma con una frase completa.",
       "Desde la lista de frases guardadas también puedes borrar las que ya no necesites con el boton de 🗑️ al lado de cada frase.",
     ],
     imagen: "/hablapic/guia/03-frases-guardadas.jpg",
@@ -41,7 +41,7 @@ const pasos = [
   {
     titulo: "Crea tus propios botones",
     texto: [
-      "Toca el botón azul ➕ para crear un botón nuevo. Escribe la palabra o frase y elige una imagen: puedes tomar una foto, elegir una de la galería, usar un emoji grande o pedirle a tu IA (ChatGPT o Gemini) que la cree por fuera de la app y despues la subes desde la galeria.",
+      "Toca el botón azul ( ➕ ) para crear un botón nuevo. Escribe la palabra o frase y elige una imagen: puedes tomar una foto, elegir una de la galería, usar un emoji grande o pedirle a tu IA (ChatGPT o Gemini) que la cree por fuera de la app y despues la subes desde la galeria.",
       "Elige la categoría para el botón o crea una nueva escogiendo el color que mas te guste, crea la categoría y toca Guardar. Para cambiar la foto o el texto de un botón que ya existe, mantenlo presionado y podras acceder al modulo de configurafion del pictograma y modificarlo a tu gusto.",
     ],
     imagen: "/hablapic/guia/04-nuevo-boton.jpg",
@@ -52,7 +52,7 @@ const pasos = [
   {
     titulo: "Agrega muchos pictogramas de una vez",
     texto: [
-      "Con el botón de 📂 -agregar varias imagenes- puedes subir muchas imágenes en un solo paso. Primero elige la categoría donde se guardarán y luego elige las imágenes desde tus archivos.",
+      "Con el botón de ( 📂 ) -agregar varias imagenes- puedes subir muchas imágenes en un solo paso. Primero elige la categoría donde se guardarán y luego elige las imágenes desde tus archivos.",
       "Ponle nombre correcto en frente de cada imagen y súbelas todas juntas; espera a que termine el proceso. Al final puedes borrar las imágenes originales de tu celular: quedan guardadas dentro de la app.",
     ],
     imagen: "/hablapic/guia/05-carga-masiva.jpg",
@@ -63,6 +63,7 @@ const pasos = [
   {
     titulo: "Ajusta la app a tu medida",
     texto: [
+      "con el boton del ( ⚙️ ) puedes acceder al modulo de configuraciones. ",
       "Desde Configuración puedes quitar la ventana de bienvenida.",
       "Elegir el idioma (la app está en 10 idiomas y por defecto usa el del celular), ajustar el tono y la velocidad de la voz y escoger entre las voces disponibles.",
       "También puedes poner tu propia imagen de fondo y borrar todos los botones si quieres empezar de cero. Para ingresar a configuracion debes pasar un candado de seguridad de una suma de 3 cifras, esto con la intencion de que nadie por error pueda cambiar las configuraciones de la app.",
@@ -76,7 +77,8 @@ const pasos = [
   {
     titulo: "Una guía rápida dentro de la app",
     texto: [
-      "HablaPic incluye una guía corta que explica lo esencial en cuatro pasos: cómo armar frases, cómo agregar o cambiar botones, la configuración y la carga masiva.",
+      "Con el botón de ( ❓ ) Ayuda ingresas al modulo de ayuda.",
+      "E n donde HablaPic incluye una guía corta que explica lo esencial en cuatro pasos: cómo armar frases, cómo agregar o cambiar botones, la configuración y la carga masiva.",
       "Puedes saltarla o repasarla con el botón «?» cuando lo necesites.",
     ],
     imagen: "/hablapic/guia/07-guia-en-la-app.jpg",
@@ -87,7 +89,8 @@ const pasos = [
   {
     titulo: "Un mensaje de papá a papá",
     texto: [
-      "Dentro de la app también encontrarás la historia de por qué existe HablaPic, cómo compartirla de forma segura y cómo pedir soporte desde mi página web.",
+      "Con el boton de Apoyo ( 💛 ) podras ingresar al modulo de Apoyo",
+      "Dentro de este modulo podrás encontrarás la historia de por qué existe HablaPic, cómo compartirla de forma segura y cómo pedir soporte desde mi página web.",
       "Si quieres, puedes hacer un aporte voluntario como agradecimiento: el pago se hace de forma segura con Google Play y es totalmente opcional.",
       "Los enlaces (política de privacidad y mi página web) y el botón de aporte están protegidos con un candado: hay que resolver una multiplicación de dos cifras. Así los niños no salen de la app ni hacen un pago por accidente.",
     ],
