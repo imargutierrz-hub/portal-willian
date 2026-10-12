@@ -21,7 +21,7 @@ import Apoyo from "@/components/hablapic/Apoyo"
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.andresgutierrez.hablapic"
 
-const VIDEO_URL = ""
+const VIDEO_ID = "6ELs_VP0mZI"
 
 // =====================================================
 // DATOS
@@ -342,24 +342,18 @@ export default function HablaPicPage() {
 
               <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl shadow-slate-200">
 
-                {VIDEO_URL ? (
+                {VIDEO_ID ? (
 
-                  <a
-                    href={VIDEO_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group flex min-h-[330px] flex-col items-center justify-center gap-4 text-white"
-                  >
-
-                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 backdrop-blur transition group-hover:scale-110">
-                      <PlayCircle className="h-12 w-12 text-cyan-300" />
-                    </div>
-
-                    <span className="text-sm font-bold">
-                      Ver el video de instrucciones
-                    </span>
-
-                  </a>
+                  <div className="aspect-video w-full">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}`}
+                      title="Video de instrucciones de HablaPic"
+                      className="h-full w-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      loading="lazy"
+                    />
+                  </div>
 
                 ) : (
 
