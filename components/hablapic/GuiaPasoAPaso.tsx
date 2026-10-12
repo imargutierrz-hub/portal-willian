@@ -8,7 +8,7 @@ const pasos = [
     titulo: "Abre la app y toca Comenzar",
     texto: [
       "Al abrir HablaPic verás la pantalla de bienvenida. Toca Comenzar para entrar al tablero.",
-      "Si prefieres entrar directo cada vez, puedes omitir esta pantalla desde Configuración.",
+      "Si prefieres entrar directo cada vez, puedes omitir esta pantalla desde Configuración, despues de pasar un candado simple de una suma de 3 cifras y activar el boton de omitir pantalla de bienvenida.",
     ],
     imagen: "/hablapic/guia/01-bienvenida.jpg",
     ancho: 1200,
