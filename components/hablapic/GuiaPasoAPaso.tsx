@@ -63,8 +63,9 @@ const pasos = [
   {
     titulo: "Ajusta la app a tu medida",
     texto: [
-      "Desde Configuración puedes elegir el idioma (la app está en 9 idiomas y por defecto usa el del celular), ajustar el tono y la velocidad de la voz y escoger entre las voces disponibles.",
-      "También puedes poner tu propia imagen de fondo y borrar todos los botones si quieres empezar de cero. Para entrar a Configuración hay que resolver una suma de tres cifras: así nadie cambia los ajustes sin querer.",
+      "Desde Configuración puedes quitar la ventana de bienvenida.",
+      "Elegir el idioma (la app está en 10 idiomas y por defecto usa el del celular), ajustar el tono y la velocidad de la voz y escoger entre las voces disponibles.",
+      "También puedes poner tu propia imagen de fondo y borrar todos los botones si quieres empezar de cero. Para ingresar a configuracion debes pasar un candado de seguridad de una suma de 3 cifras, esto con la intencion de que nadie por error pueda cambiar las configuraciones de la app.",
       "Si tu celular no tiene instalada la voz del idioma, instálala en los ajustes del celular, en «Salida de texto a voz».",
     ],
     imagen: "/hablapic/guia/06-configuracion.jpg",
