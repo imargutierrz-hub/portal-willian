@@ -254,9 +254,7 @@ export default function HablaPicPage() {
           </div>
 
           <p className="mt-6 text-xs text-slate-400">
-            Para participar en la comunidad necesitas crear una cuenta
-            gratuita en esta página. La aplicación HablaPic no necesita una
-            cuenta para utilizarse.
+            Puedes leer y publicar en el foro sin crear una cuenta. La aplicación HablaPic tampoco necesita una cuenta para utilizarse.
           </p>
 
         </div>
