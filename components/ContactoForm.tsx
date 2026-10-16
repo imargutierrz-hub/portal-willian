@@ -10,12 +10,20 @@ export default function ContactoForm() {
   const [nombre, setNombre] = useState("")
   const [email, setEmail] = useState("")
   const [mensaje, setMensaje] = useState("")
+  const [confirmarEmail, setConfirmarEmail] = useState("")
+  const [correoNoCoincide, setCorreoNoCoincide] = useState(false)
   const [estado, setEstado] = useState<"listo" | "enviando" | "enviado" | "error">(
     "listo"
   )
 
   async function enviar(e: FormEvent) {
     e.preventDefault()
+    
+    if (email.trim().toLowerCase() !== confirmarEmail.trim().toLowerCase()) {
+      setCorreoNoCoincide(true)
+      return
+    }
+    setCorreoNoCoincide(false)
     setEstado("enviando")
 
     try {
@@ -30,6 +38,7 @@ export default function ContactoForm() {
       setEstado("enviado")
       setNombre("")
       setEmail("")
+      setConfirmarEmail("")
       setMensaje("")
     } catch {
       setEstado("error")
@@ -89,6 +98,22 @@ export default function ContactoForm() {
       </div>
 
       <div className="mt-4">
+        <label className="text-xs font-semibold text-slate-700">
+          Confirma tu email
+        </label>
+        <input
+          type="email"
+          value={confirmarEmail}
+          onChange={(e) => setConfirmarEmail(e.target.value)}
+          onPaste={(e) => e.preventDefault()}
+          placeholder="Escríbelo otra vez"
+          maxLength={254}
+          required
+          className={CAMPO}
+        />
+      </div>
+
+      <div className="mt-4">
         <label className="text-xs font-semibold text-slate-700">Mensaje</label>
         <textarea
           value={mensaje}
@@ -100,6 +125,12 @@ export default function ContactoForm() {
           className="mt-2 w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs outline-none transition focus:border-blue-500 focus:bg-white"
         />
       </div>
+
+      {correoNoCoincide && (
+        <p className="mt-3 text-xs text-red-600">
+          Los correos no coinciden. Revisa que estén bien escritos.
+        </p>
+      )}
 
       {estado === "error" && (
         <p className="mt-3 text-xs text-red-600">
