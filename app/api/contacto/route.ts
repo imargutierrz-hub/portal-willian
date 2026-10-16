@@ -25,19 +25,26 @@ export async function POST(request: Request) {
       )
     }
 
-    await resend.emails.send({
-      // Mientras no tengas un dominio verificado en Resend, el remitente
-      // tiene que ser este. Cuando compres tu dominio, lo verificas en
-      // Resend y cambias esto por algo como "contacto@tudominio.com".
-      from: "Portal Willian <onboarding@resend.dev>",
+    const { error } = await resend.emails.send({
+
+      from: "Portal Willian <contacto@andresgutierrez-dev.com>",
       to: CORREO_DESTINO,
       replyTo: email,
       subject: `Nuevo mensaje de contacto — ${nombre}`,
       text: `De: ${nombre} <${email}>\n\n${mensaje}`,
     })
 
+    if (error) {
+      console.error("Resend error:", error)
+      return NextResponse.json(
+        { error: "No se pudo enviar", detalle: error.message },
+        { status: 500 }
+      )
+    }
+
     return NextResponse.json({ ok: true })
-  } catch {
+  } catch (err) {
+    console.error("Error en /api/contacto:", err)
     return NextResponse.json(
       { error: "No pudimos enviar el mensaje. Intenta de nuevo." },
       { status: 500 }
